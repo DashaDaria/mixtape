@@ -1,7 +1,13 @@
 html {
   font-size: 10px;
-  background: url(https://i.imgur.com/j0VloAR.jpg);
-  background-size: auto;
+  background-image: url(https://i.imgur.com/j0VloAR.jpg);
+  background-position: 0% 0%
+  background-size: auto auto;
+  background-repeat: repeat;
+  background-origin: padding-box;
+  background-clip: border-box;
+  background-attachment: scroll;
+  background-color: transparent;
 }
 body,html {
   margin: 0;
