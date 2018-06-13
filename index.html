@@ -2,11 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>DJ Set</title>
+  <title>Mixtape</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <p id="status"></p>
+<div class="current-selection">
+  <p>Your current set is: </p>
+</div>
   <div class="keys">
     <div data-key="65" class="key">
       <kbd>A</kbd>
@@ -46,6 +49,8 @@
     </div>
   </div>
 
+
+
   <audio data-key="65" src="sounds/clap.wav"></audio>
   <audio data-key="83" src="sounds/hihat.wav"></audio>
   <audio data-key="68" src="sounds/kick.wav"></audio>
@@ -61,12 +66,16 @@
    function playSound(e){
     const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`)
     const key = document.querySelector(`.key[data-key="${e.keyCode}"]`)
+
     if(!audio) return;
     audio.currentTime = 0;
     audio.play()
     .then(() => {
       document.getElementById("status").innerHTML = "Good choice!"
     })
+    // .then(() => {
+    //   document.getElementsByClassName("current-selection").innerHTML = key
+    // })
     key.classList.add('playing')
   }
 
@@ -79,6 +88,7 @@
   keys.forEach(key => key.addEventListener('transitionend', removeTransition))
 
   window.addEventListener("keydown", playSound)
+
 </script>
 
 
